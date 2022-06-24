@@ -161,14 +161,104 @@ const testData = [
 suite('Unit Tests', () => {
 
     suite('Translation', () => {
-        testData.forEach(tc => {
-            let title = 'Translate "' + tc.text + '" to ' + (tc.direction === 'ab' ? 'British English' : 'American English');
-            setTimeout(() => {
-                test(title, () => {
-                    let tranlation = translator.translate(tc.text,tc.direction);
-                    assert.equal(tranlation.text,tc.translation);
-                });
-            }, 100);
+        test("Translate \"Mangoes are my favorite fruit.\" to British English", () => {
+            let translation = translator.translate("Mangoes are my favorite fruit.","ab");
+            assert.equal(translation.text,"Mangoes are my favourite fruit.");
+        });
+        
+        test("Translate \"I ate yogurt for breakfast.\" to British English", () => {
+            let translation = translator.translate("I ate yogurt for breakfast.","ab");
+            assert.equal(translation.text,"I ate yoghurt for breakfast.");
+        });
+        
+        test("Translate \"We had a party at my friend's condo.\" to British English", () => {
+            let translation = translator.translate("We had a party at my friend's condo.","ab");
+            assert.equal(translation.text,"We had a party at my friend's flat.");
+        });
+        
+        test("Translate \"Can you toss this in the trashcan for me?\" to British English", () => {
+            let translation = translator.translate("Can you toss this in the trashcan for me?","ab");
+            assert.equal(translation.text,"Can you toss this in the bin for me?");
+        });
+        
+        test("Translate \"The parking lot was full.\" to British English", () => {
+            let translation = translator.translate("The parking lot was full.","ab");
+            assert.equal(translation.text,"The car park was full.");
+        });
+        
+        test("Translate \"Like a high tech Rube Goldberg machine.\" to British English", () => {
+            let translation = translator.translate("Like a high tech Rube Goldberg machine.","ab");
+            assert.equal(translation.text,"Like a high tech Heath Robinson device.");
+        });
+        
+        test("Translate \"To play hooky means to skip class or work.\" to British English", () => {
+            let translation = translator.translate("To play hooky means to skip class or work.","ab");
+            assert.equal(translation.text,"To bunk off means to skip class or work.");
+        });
+        
+        test("Translate \"No Mr. Bond, I expect you to die.\" to British English", () => {
+            let translation = translator.translate("No Mr. Bond, I expect you to die.","ab");
+            assert.equal(translation.text,"No Mr Bond, I expect you to die.");
+        });
+        
+        test("Translate \"Dr. Grosh will see you now.\" to British English", () => {
+            let translation = translator.translate("Dr. Grosh will see you now.","ab");
+            assert.equal(translation.text,"Dr Grosh will see you now.");
+        });
+        
+        test("Translate \"Lunch is at 12:15 today.\" to British English", () => {
+            let translation = translator.translate("Lunch is at 12:15 today.","ab");
+            assert.equal(translation.text,"Lunch is at 12.15 today.");
+        });
+        
+        test("Translate \"We watched the footie match for a while.\" to American English", () => {
+            let translation = translator.translate("We watched the footie match for a while.","ba");
+            assert.equal(translation.text,"We watched the soccer match for a while.");
+        });
+        
+        test("Translate \"Paracetamol takes up to an hour to work.\" to American English", () => {
+            let translation = translator.translate("Paracetamol takes up to an hour to work.","ba");
+            assert.equal(translation.text,"Tylenol takes up to an hour to work.");
+        });
+        
+        test("Translate \"First, caramelise the onions.\" to American English", () => {
+            let translation = translator.translate("First, caramelise the onions.","ba");
+            assert.equal(translation.text,"First, caramelize the onions.");
+        });
+        
+        test("Translate \"I spent the bank holiday at the funfair.\" to American English", () => {
+            let translation = translator.translate("I spent the bank holiday at the funfair.","ba");
+            assert.equal(translation.text,"I spent the public holiday at the carnival.");
+        });
+        
+        test("Translate \"I had a bicky then went to the chippy.\" to American English", () => {
+            let translation = translator.translate("I had a bicky then went to the chippy.","ba");
+            assert.equal(translation.text,"I had a cookie then went to the fish-and-chip shop.");
+        });
+        
+        test("Translate \"I've just got bits and bobs in my bum bag.\" to American English", () => {
+            let translation = translator.translate("I've just got bits and bobs in my bum bag.","ba");
+            assert.equal(translation.text,"I've just got odds and ends in my fanny pack.");
+        });
+        
+        test("Translate \"The car boot sale at Boxted Airfield was called off.\" to American English", () => {
+            let translation = translator.translate("The car boot sale at Boxted Airfield was called off.","ba");
+            assert.equal(translation.text,"The swap meet at Boxted Airfield was called off.");
+        });
+        
+        test("Translate \"Have you met Mrs Kalyani?\" to American English", () => {
+            let translation = translator.translate("Have you met Mrs Kalyani?","ba");
+            assert.equal(translation.text,"Have you met Mrs. Kalyani?");
+        });
+        
+        test("Translate \"Prof Joyner of King's College, London.\" to American English", () => {
+            let translation = translator.translate("Prof Joyner of King's College, London.","ba");
+            assert.equal(translation.text,"Prof. Joyner of King's College, London.");
+        });
+        
+        test("Translate \"Tea time is usually around 4 or 4.30.\" to American English", () => {
+            let translation = translator.translate("Tea time is usually around 4 or 4.30.","ba");
+            assert.equal(translation.text,"Tea time is usually around 4 or 4:30.");
         });
     });
 
