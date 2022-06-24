@@ -2,3 +2,4 @@
 .env
 .glitch-assets
 node_modules/
+tests/3_custom_test.js
